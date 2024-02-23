@@ -9,5 +9,12 @@ This is a substitute for Grammarly, which was blocked by the company due to data
 To run the api server:
 
 ```bash
-cd api && python3 model.py
+cd api && python3 app.py
+```
+
+Or with Docker:
+
+```bash
+docker build -t acrontum-grammar-api .
+docker run -p 5000:5000 acrontum-grammar-api
 ```
