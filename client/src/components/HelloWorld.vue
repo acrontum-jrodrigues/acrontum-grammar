@@ -8,7 +8,7 @@ defineProps<{
   <div class="greetings">
     <h1 class="blue">{{ msg }}</h1>
     <h3>
-      We don't store any of your data anywhere
+      We don't store any of your data
     </h3>
   </div>
 </template>
