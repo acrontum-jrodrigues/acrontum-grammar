@@ -30,6 +30,7 @@ button {
   color: white;
   cursor: pointer;
   align-self: center;
+  font-weight: bold;
 }
 
 .section-container {
