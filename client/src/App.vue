@@ -39,17 +39,18 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: var(--vt-c-blue);
 }
 
 nav a.router-link-exact-active:hover {
   background-color: transparent;
-}
+} 
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 
 nav a:first-of-type {
