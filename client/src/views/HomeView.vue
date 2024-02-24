@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import GrammarChecker from '../components/GrammarChecker.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <GrammarChecker />
   </main>
 </template>
