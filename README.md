@@ -18,3 +18,13 @@ Or with Docker:
 docker build -t acrontum-grammar-api .
 docker run -p 5000:5000 acrontum-grammar-api
 ```
+
+To run the web app:
+
+```bash
+cd client && pnpm dev
+```
+
+## Limitations
+
+Only the english language is supported.
