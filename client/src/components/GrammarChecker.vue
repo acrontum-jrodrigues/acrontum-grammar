@@ -1,10 +1,24 @@
 <script setup lang="ts">
+import axios from 'axios';
+
+const checkGrammar = () => {
+  const text = document.querySelector('textarea')?.value;
+  if (!text) return;
+
+  axios.post('http://localhost:5000/grammar', { text })
+    .then((response) => {
+      document.querySelectorAll('textarea')[1].value = response.data.edited_text;
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
 </script>
 
 <template>
   <div class="section-container">
     <textarea placeholder="Input the text you want to check" rows="10"></textarea>
-    <button>Check grammar</button>
+    <button @click="checkGrammar">Check grammar</button>
     <textarea placeholder="Corrected text will appear here" readonly rows="10"></textarea>
   </div>
 </template>
