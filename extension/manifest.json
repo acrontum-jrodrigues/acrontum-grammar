@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "Acrontum Grammar",
+    "version": "1.0",
+  
+    "description": "Verifies the grammar of the text",
+  
+    "icons": {
+      "48": "icons/acrontum_logo.ico"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.mozilla.org/*"],
+        "js": ["main.js"]
+      }
+    ]
+  }
+  
