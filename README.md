@@ -6,6 +6,8 @@ This is a substitute for Grammarly, which was blocked by the company due to data
 
 ## Usage
 
+### API
+
 To run the api server:
 
 ```bash
@@ -19,11 +21,17 @@ docker build -t acrontum-grammar-api .
 docker run -p 5000:5000 acrontum-grammar-api
 ```
 
+### Web App
+
 To run the web app:
 
 ```bash
 cd client && pnpm dev
 ```
+
+### Web Extension
+
+Check the [README](./extension/README.md) in the extension directory.
 
 ## Limitations
 
