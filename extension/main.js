@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Function to verify the grammar
 function verifyGrammar(text) {
     axios.post('http://localhost:5000/grammar', { text })
