@@ -5,8 +5,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-tokenizer = AutoTokenizer.from_pretrained("grammarly/coedit-large")
-model = T5ForConditionalGeneration.from_pretrained("grammarly/coedit-large")
+tokenizer = AutoTokenizer.from_pretrained("grammarly/coedit-xl")
+model = T5ForConditionalGeneration.from_pretrained("grammarly/coedit-xl")
 
 @app.route('/grammar', methods=['POST'])
 def correct():

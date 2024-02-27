@@ -7,14 +7,32 @@ import "uno.css";
 const [show, toggle] = useToggle(false);
 
 // Function to perform grammar check
-function performGrammarCheck(text: string) {
+function performGrammarCheck(text: string, input: Element) {
   axios.post('http://localhost:5000/grammar', { text })
     .then((response: any) => {
-      console.log(response.data.edited_text);
+      const editedText = response.data.edited_text;
+      console.log(editedText);
+      if (editedText !== text) {
+        highlightDifferences(editedText, text, input);
+      }
     })
     .catch((error: any) => {
       alert(error.message);
     });
+}
+
+// Function to highlight differences between original and edited text
+function highlightDifferences(editedText: string, originalText: string, input: Element) {
+  const originalWords = originalText?.split(" ");
+  const editedWords = editedText.split(" ");
+  const differences = originalWords?.map((word, index) => {
+    if (word !== editedWords[index]) {
+      return `<span style="background-color: yellow">${editedWords[index]}</span>`;
+    }
+    return word;
+  });
+  const highlightedText = differences?.join(" ");
+  input!.innerHTML = highlightedText;
 }
 
 // Watch for changes in user input
@@ -24,8 +42,8 @@ function watchAllInputs() {
     input.addEventListener("input", debounce((event) => {
       const newValue = event.target.value;
       if (newValue.length < 3) return;
-      performGrammarCheck(newValue);
-    }, 300));
+      performGrammarCheck(newValue, input);
+    }, 400));
   });
 }
 
