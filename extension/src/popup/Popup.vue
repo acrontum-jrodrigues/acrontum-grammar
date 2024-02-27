@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { webAppUrl } from '~/env';
 import { storageDemo } from '~/logic/storage';
 
 function openWebApp() {
-  browser.tabs.create({ url: 'http://localhost:5173' });
+  browser.tabs.create({ url: webAppUrl });
 }
 </script>
 
