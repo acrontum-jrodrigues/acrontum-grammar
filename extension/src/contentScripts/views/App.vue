@@ -1,8 +1,35 @@
 <script setup lang="ts">
 import { useToggle } from "@vueuse/core";
+import axios from 'axios';
+import { debounce } from "lodash";
 import "uno.css";
 
 const [show, toggle] = useToggle(false);
+
+// Function to perform grammar check
+function performGrammarCheck(text: string) {
+  axios.post('http://localhost:5000/grammar', { text })
+    .then((response: any) => {
+      console.log(response.data.edited_text);
+    })
+    .catch((error: any) => {
+      alert(error.message);
+    });
+}
+
+// Watch for changes in user input
+function watchAllInputs() {
+  const inputs = document.querySelectorAll("input[type='text'], textarea");
+  inputs.forEach((input) => {
+    input.addEventListener("input", debounce((event) => {
+      const newValue = event.target.value;
+      if (newValue.length < 3) return;
+      performGrammarCheck(newValue);
+    }, 300));
+  });
+}
+
+watchAllInputs();
 </script>
 
 <template>
